@@ -1,0 +1,7 @@
+##Copy onlyt codes below to 
+
+## ~/.zshrc or .bashrc:
+
+alias kennedia='ssh root@kennediajobs.com'
+alias ics='ssh root@icsjobportal.com'
+alias cls='clear'
