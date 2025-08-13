@@ -4,4 +4,8 @@
 
 alias kennedia='ssh root@kennediajobs.com'
 alias ics='ssh root@icsjobportal.com'
+alias eterna='ssh root@eternaapps.com'
+
+
+
 alias cls='clear'
