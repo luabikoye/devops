@@ -1,0 +1,42 @@
+---
+- name: Webserver setup
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: install httpd
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: start httpd service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+- name: DBServer setup
+  hosts: dbservers
+  become: yes
+  tasks:
+    - name: refresh packages (AL2023)
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+
+    - name: install MariaDB 10.5 server (AL2023)
+      ansible.builtin.dnf:
+        name:
+          - mariadb105-server
+          - mariadb105
+        state: present
+
+    - name: start and enable mariadb
+      ansible.builtin.service:
+        name: mariadb
+        state: started
+        enabled: yes
+
+    - name: start mariadb service
+      ansible.builtin.service:
+        name: mariadb
+        enabled: yes
